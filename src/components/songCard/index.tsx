@@ -1,21 +1,21 @@
 import React from 'react';
 
 interface Props {
-  img: string,
-  singer: string,
-  songName: string
+  image_url: string,
+  artist: string,
+  title: string
 }
 
 const SongCard: React.FC<Props> = ({
-  img,
-  singer,
-  songName
+  image_url,
+  artist,
+  title
 }) => (
   <div className='card'>
-    <img src={img} alt={songName} className='card-image' />
+    <img src={image_url} alt={title} className='card-image' />
     <div className='card-info'>
-      <span className='card-info-header'>{singer}</span>
-      <span className='card-info-text'>{songName}</span>
+      <span className='card-info-header'>{artist}</span>
+      <span className='card-info-text'>{title}</span>
     </div>
   </div>
 );
