@@ -1,0 +1,13 @@
+.primary-input {
+  padding: 8px;
+  transition: all 0.3s linear;
+  border-radius: 8px;
+  width: 500px;
+  box-shadow: 2px 2px #f5f5f5;
+  border: 2px solid #f5f5f5;
+
+  &:focus {
+    border: 2px solid #e7e5e5;
+    outline: none;
+  }
+}
