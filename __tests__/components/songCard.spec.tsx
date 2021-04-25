@@ -1,5 +1,5 @@
 import { render } from '@testing-library/react'
-import SongCard from '../../src/components/songCard';
+import SongCard from '../../src/components/songCard/index';
 
 it('should render SongCard with img, singer and songName props', () => {
   const { getByText, getByAltText } = render(

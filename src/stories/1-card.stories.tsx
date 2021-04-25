@@ -1,4 +1,4 @@
-import Card from '../components/songCard';
+import Card from '../components/songCard/index';
 
 export const SongCard = () => (
   <Card 
