@@ -1,4 +1,5 @@
 import Card from '../components/songCard/index';
+import '../styles/card.scss';
 
 export const SongCard = () => (
   <Card 
