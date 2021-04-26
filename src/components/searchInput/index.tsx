@@ -7,7 +7,7 @@ interface Props {
 
 const SearchInput: React.FC<Props> = ({
   onChange,
-  placeholder='search'
+  placeholder='Search'
 }) => {
   const [inputValue, setInputValue] = useState('');
 
