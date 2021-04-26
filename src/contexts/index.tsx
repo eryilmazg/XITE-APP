@@ -1,13 +1,24 @@
 import React, {
-  createContext, useContext, useState, useEffect, useMemo
+  createContext, useContext, useState, useEffect, useMemo, Dispatch
 } from 'react';
 import { getSongInfo } from '../api/index';
-import { Video, Genre } from '../types/index';
+import { Video, Genre, Option } from '../types/index';
 import { convertGenresToFilterOptions, convertVideosToYearOptions, filterSongsBySearchGenreYear } from './helpers/index';
 
-const ApplicationContext = createContext({});
+interface ContextType {
+  filteredSongsData: Video[],
+  errorMessage: string,
+  allGenres: Genre[],
+  genresOptions: Option<number>[],
+  yearOptions: Option<number>[],
+  setSelectedGenres: Dispatch<number[]>,
+  setSelectedYears: Dispatch<number[]>,
+  setSearchInputValue: Dispatch<string>,
+  isLoading: boolean
+}
 
-export const useApplicationContext = useContext(ApplicationContext);
+const ApplicationContext = createContext({});
+export const useApplicationContext = () => useContext(ApplicationContext) as ContextType;
 
 interface Props {
   children: React.ReactNode
