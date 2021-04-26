@@ -33,6 +33,7 @@ const ApplicationContextProvider: React.FC<Props> = ({
   const [selectedGenres, setSelectedGenres] = useState([]);
   const [selectedYears, setSelectedYears] = useState([]);
   const [searchInputValue, setSearchInputValue] = useState('');
+  const [isLoading, setIsLoading] = useState(true);
   const [errorMessage, setErrorMessage] = useState('');
 
   useEffect(() => {
@@ -44,6 +45,7 @@ const ApplicationContextProvider: React.FC<Props> = ({
         setAllSongsData(videos);
         setFilteredSongsData(videos);
         setAllGenres(genres);
+        setIsLoading(false);
       };
 
       getSongs();
@@ -52,7 +54,8 @@ const ApplicationContextProvider: React.FC<Props> = ({
         setErrorMessage(e.message);
         return;
       }
-      setErrorMessage('Unexpected error occured, please try again.')
+      setErrorMessage('Unexpected error occured, please try again.');
+      setIsLoading(false);
     }
   }, [])
 
@@ -85,8 +88,9 @@ const ApplicationContextProvider: React.FC<Props> = ({
     yearOptions,
     setSelectedGenres,
     setSelectedYears,
-    setSearchInputValue
-  }
+    setSearchInputValue,
+    isLoading
+  };
 
   return (
     <ApplicationContext.Provider value={value}>
