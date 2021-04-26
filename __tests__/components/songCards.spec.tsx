@@ -15,3 +15,13 @@ it('should render SongCard components with the given data', () => {
     getByAltText(title);
   });
 });
+
+it('should No songs to show text on data empty array', () => {
+  const { getByText,  } = render(
+    <Cards
+      data={[]}
+    />
+  );
+
+  getByText('No songs to show');
+});
