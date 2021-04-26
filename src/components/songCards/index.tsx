@@ -12,21 +12,27 @@ interface Props {
 }
 
 const SongCards: React.FC<Props> = ({ data }) => (
-  <ResponsiveLayout>
-    {data.map(({
-      image_url,
-      artist,
-      title,
-      id
-    }) => (
-      <SongCard
-        image_url={image_url}
-        artist={artist}
-        title={title}
-        key={id}
-      />
-    ))}
-  </ResponsiveLayout>
+  data.length > 0 ? (
+    <ResponsiveLayout>
+      {data.map(({
+        image_url,
+        artist,
+        title,
+        id
+      }) => (
+        <SongCard
+          image_url={image_url}
+          artist={artist}
+          title={title}
+          key={id}
+        />
+      ))}
+    </ResponsiveLayout>
+  ) : (
+    <ResponsiveLayout>
+      No songs to show
+    </ResponsiveLayout>
+  )
 );
 
 export default SongCards;
