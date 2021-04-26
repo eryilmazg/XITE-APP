@@ -1,4 +1,5 @@
 import React from 'react';
+import ResponsiveLayout from '../../components/responsiveLayout';
 import Cards from '../../components/songCards/index';
 import { useApplicationContext } from '../../contexts/index';
 
@@ -10,7 +11,7 @@ const SongCards: React.FC<{}> = () =>{
 
   return (
     isLoading ? (
-      <div>...loading</div>
+      <ResponsiveLayout>...loading</ResponsiveLayout>
     )
     : (
       <Cards
