@@ -35,7 +35,7 @@ const Filters: React.FC<Props> = ({
           <div className="filter-select-container">
             {genresOptions.length > 0 && (
               <Select
-                classNamePrefix='list'
+                classNamePrefix='genreOption'
                 options={genresOptions}
                 isMulti={true}
                 placeholder='Genres'
@@ -46,7 +46,7 @@ const Filters: React.FC<Props> = ({
           <div className="filter-select-container">
             {yearOptions.length > 0 && (
               <Select
-                classNamePrefix='list'
+                classNamePrefix='yearOption'
                 options={yearOptions}
                 isMulti={true}
                 placeholder='Release year'
