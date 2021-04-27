@@ -7,7 +7,7 @@ export const convertGenresToFilterOptions = (genres: Genre[]): Option<number>[] 
   }))
 );
 
-export const convertVideosToYearOptions = (videos: Video[]): Option<number>[] => {
+export const convertVideosToYearOptions = (videos: { release_year: number }[]): Option<number>[] => {
   let uniqueYears: number[] = [];
   videos.forEach(({ release_year }) => {
     if (!uniqueYears.includes(release_year)) {
