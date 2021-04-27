@@ -37,8 +37,8 @@ const ApplicationContextProvider: React.FC<Props> = ({
   const [errorMessage, setErrorMessage] = useState('');
 
   useEffect(() => {
-    try {
-      const getSongs = async () => {
+    const getSongs = async () => {
+      try {
         const response = await getSongInfo();
         const videos = response.data.videos;
         const genres = response.data.genres;
@@ -46,18 +46,12 @@ const ApplicationContextProvider: React.FC<Props> = ({
         setFilteredSongsData(videos);
         setAllGenres(genres);
         setIsLoading(false);
-      };
-
-      getSongs();
-    } catch(e) {
-      if (e?.message) {
-        setErrorMessage(e.message);
+      } catch(e) {
+        setErrorMessage(e?.message);
         setIsLoading(false);
-        return;
       }
-      setErrorMessage('Unexpected error occured, please try again.');
-      setIsLoading(false);
-    }
+    };
+    getSongs();
   }, [])
 
   useEffect(() => {
@@ -66,7 +60,7 @@ const ApplicationContextProvider: React.FC<Props> = ({
   }, [searchInputValue, selectedGenres, selectedYears]);
 
   const genresOptions = useMemo(() => {
-    if (allGenres.length !== 0) {
+    if (allGenres?.length !== 0) {
       return convertGenresToFilterOptions(allGenres);
     }
 
@@ -74,7 +68,7 @@ const ApplicationContextProvider: React.FC<Props> = ({
   }, [allGenres]);
 
   const yearOptions = useMemo(() => {
-    if (allSongsData.length !== 0) {
+    if (allSongsData?.length !== 0) {
       return convertVideosToYearOptions(allSongsData);
     }
 
