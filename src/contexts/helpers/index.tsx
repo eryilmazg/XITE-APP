@@ -1,7 +1,7 @@
 import { Genre, Option, Video } from '../../types/index';
 
 export const convertGenresToFilterOptions = (genres: Genre[]): Option<number>[] => (
-  genres.map(( {id, name }) => ({
+  genres.map(({id, name }) => ({
     value: id,
     label: name
   }))
@@ -19,16 +19,14 @@ export const convertVideosToYearOptions = (videos: Video[]): Option<number>[] =>
     value: release_year,
     label: release_year.toString()
   }))
-}
-  
+};
 
 export const filterSongsBySearchGenreYear = (searchValue: string, genres: number[], years: number[], songsToFilter: Video[]): Video[] => {
   let filteredSongs = songsToFilter;
   if (searchValue) {
     filteredSongs = filteredSongs.filter(({ artist, title }) => (
       artist.toLowerCase().includes(searchValue.toLowerCase()) || title.toString().toLowerCase().includes(searchValue.toLowerCase())
-    )
-    );
+    ));
   }
 
   if (filteredSongs.length > 0 && (genres.length > 0 || years.length > 0) ) {
@@ -40,4 +38,4 @@ export const filterSongsBySearchGenreYear = (searchValue: string, genres: number
   }
 
   return filteredSongs;
-}
+};
