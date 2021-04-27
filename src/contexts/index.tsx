@@ -50,8 +50,9 @@ const ApplicationContextProvider: React.FC<Props> = ({
 
       getSongs();
     } catch(e) {
-      if (e.message) {
+      if (e?.message) {
         setErrorMessage(e.message);
+        setIsLoading(false);
         return;
       }
       setErrorMessage('Unexpected error occured, please try again.');
